@@ -1,0 +1,7 @@
+{
+  "name": "SIGLA",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
