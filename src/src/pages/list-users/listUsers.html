@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>List Users</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+  <ion-grid class="fullscreen">
+ 	 <ion-row class="fullscreen">
+	  	 <ion-col col-12 col-md-2 class="right col-height fullscreen">
+	  	 	<div class="parent mt-1">
+		  	 	 <div class="child inline-block-child left-filter"><h3>Filters:</h3></div>
+		  	 	 <div class="child inline-block-child icon-font right-filter" style="margin-top:3px;">
+		  	 	 <span ><ion-icon name="add-circle" (click)="addFilter()"></ion-icon></span></div> 
+	  	 	</div>
+			  <div *ngIf="selectedItem" padding class="nav-span">
+			    You navigated here from <b>{{selectedItem.title}}</b>
+			  </div>
+		  </ion-col>
+		  <ion-col col-12 col-md-10>
+		  	<ion-list >
+		  		<div *ngFor="let user of list_users" class="row-purple" style="text-align:center">	
+			  		<ion-grid data-id-user="user.id">
+				  		<ion-row justify-content-center>
+				  			<ion-col col-12 col-md-1 align-self-center><img style="width:80px;" src="{{user.icon}}"></ion-col>
+				  			<ion-col col-12 col-md-2 align-self-center>{{user.name}}  {{user.surname}} </ion-col>
+				  			<ion-col col-12 col-md-2 align-self-center>{{user.email}}</ion-col>
+				  			<ion-col col-12 col-md-4 align-self-center>
+				  				<ion-grid align-self-center>
+					  				<ion-row align-self-center>
+						  				<ion-col col-10 align-self-left >
+						  					<textarea class="textarea-custom" style="width:100%" placeholder="Insert notes">{{user.note}}</textarea>
+						  				</ion-col>
+							  			<ion-col col-2 align-self-right class="icon-save-textarea"><ion-icon name="add-circle"></ion-icon></ion-col>
+						  			</ion-row>
+					  			</ion-grid>	
+					  		</ion-col>
+				  			<ion-col col-4 col-md-1 align-self-center>
+						  			<ion-icon name="brush" (click)="modifyUser(user.id)"></ion-icon>
+				  			</ion-col>
+				  			<ion-col col-4 col-md-1 align-self-center>
+						  			<ion-icon name="trash" (click)="deleteUser(user.id)" data-toggle="modal" data-target="#modalConfirm"></ion-icon>
+				  			</ion-col>
+				  			<ion-col col-4 col-md-1 align-self-center>
+						  			<ion-icon name="information-circle" (click)="optionUser(user.id)"></ion-icon>
+				  			</ion-col> 			
+			  			</ion-row>
+			  		</ion-grid>
+			  		<hr>
+		  		</div>
+		  	</ion-list>
+		  </ion-col>
+	 </ion-row>
+  </ion-grid>
+</ion-content>

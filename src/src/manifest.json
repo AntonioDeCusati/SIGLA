@@ -1,0 +1,13 @@
+{
+  "name": "SIGLA",
+  "short_name": "SIGLA",
+  "start_url": "index.html",
+  "display": "standalone",
+  "icons": [{
+    "src": "assets/imgs/logo.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }],
+  "background_color": "#aa7be0",
+  "theme_color": "#aa7be0"
+}
